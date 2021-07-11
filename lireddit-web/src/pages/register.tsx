@@ -11,6 +11,7 @@ import {
 import { Wrapper } from "../components/Wrapper";
 import { InputField } from "../components/InputField";
 import { useMutation } from "urql";
+import { useRegisterMutation } from "../generated/graphql";
 
 interface registerProps {}
 
@@ -30,7 +31,7 @@ mutation Register($username: String!, $password: String!) {
 `;
 
 export const Register: React.FC<registerProps> = ({}) => {
-  const [, register] = useMutation(REGISTER_MUT);
+  const [, register] = useRegisterMutation();
   return (
     <Wrapper variant="small">
       <Formik
